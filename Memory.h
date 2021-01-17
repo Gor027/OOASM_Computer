@@ -1,7 +1,3 @@
-//
-// Created by gor on 16.01.2021.
-//
-
 #ifndef OOASM_MEMORY_H
 #define OOASM_MEMORY_H
 
@@ -14,23 +10,23 @@
 
 template<uint64_t Size>
 class Memory {
-    private:
-        std::array<int64_t, Size> memCells;
-        std::map<Id, uint64_t> variables;
-        uint64_t numberOfVariables = 0;
+private:
+    std::array<int64_t, Size> memCells;
+    std::map<Id, uint64_t> variables;
+    uint64_t numberOfVariables = 0;
 
-    public:
-        // Maybe flags should be just bool not separate classes.
-        ZF zeroFlag;
-        SF signFlag;
+public:
+    // Maybe flags should be just bool not separate classes.
+    ZF zeroFlag;
+    SF signFlag;
 
-        int64_t getMemValue(uint64_t index) const;
+    int64_t getMemValue(uint64_t index) const;
 
-        void changeMemValue(uint64_t index, int64_t value);
+    void changeMemValue(uint64_t index, int64_t value);
 
-        uint64_t getVarAddr(Id &name);
+    uint64_t getVarAddr(const Id &name);
 
-        void declareNewVariable(Id &name, int64_t value);
-}
+    void declareNewVariable(const Id &name, int64_t value);
+};
 
 #endif //OOASM_MEMORY_H
