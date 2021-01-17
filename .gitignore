@@ -1,0 +1,9 @@
+debug
+release
+.vscode/
+build
+.idea/
+cmake-build-debug/
+toTest/a.out
+toTest/test_damiana_compiled
+
