@@ -29,10 +29,10 @@ void Memory<Size>::declareNewVariable(const Id &name, int64_t value) {
 
     memCells[numberOfVariables] = value;
 
-    auto iter = memCells.find(name);
+    auto iter = variables.find(name);
 
-    if (iter == memCells.end()) {
-        memCells.insert(std::make_pair(name, numberOfVariables));
+    if (iter == variables.end()) {
+        variables.insert(std::make_pair(name, numberOfVariables));
     }
 
     numberOfVariables++;
