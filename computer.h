@@ -5,6 +5,9 @@
 #include <sstream>
 #include "Program.h"
 #include "Memory.h"
+#include "Num.h"
+#include "Lea.h"
+#include "Mem.h"
 
 class Computer {
 public:
