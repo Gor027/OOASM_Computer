@@ -1,14 +1,10 @@
-//
-// Created by gor on 15.01.2021.
-//
-
 #ifndef OOASM_COMPUTER_H
 #define OOASM_COMPUTER_H
 
 #include <cstdint>
 #include <sstream>
 #include "Program.h"
-
+#include "Memory.h"
 
 class Computer {
 public:
@@ -16,11 +12,10 @@ public:
 
     void boot(const program &p);
 
-    void memory_dump(const std::stringstream &ss) const;
+    void memory_dump(std::ostream &ss) const;
 
 private:
-    uint64_t memCellsNumber;
-    /* TODO: a computer should have a memory */
+    Memory mem;
 };
 
 #endif //OOASM_COMPUTER_H

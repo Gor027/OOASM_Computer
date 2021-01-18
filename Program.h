@@ -1,7 +1,3 @@
-//
-// Created by gor on 16.01.2021.
-//
-
 #ifndef OOASM_PROGRAM_H
 #define OOASM_PROGRAM_H
 

@@ -1,18 +1,20 @@
 #include "Memory.h"
 #include <stdexcept>
 
-template<uint64_t Size>
-int64_t Memory<Size>::getMemValue(uint64_t index) const {
+Memory::Memory() = default;
+
+Memory::Memory(uint64_t size) : memSize(size) {
+}
+
+int64_t Memory::getMemValue(uint64_t index) const {
     return memCells[index];
 }
 
-template<uint64_t Size>
-void Memory<Size>::changeMemValue(uint64_t index, int64_t value) {
+void Memory::changeMemValue(uint64_t index, int64_t value) {
     memCells[index] = value;
 }
 
-template<uint64_t Size>
-uint64_t Memory<Size>::getVarAddr(const Id &name) {
+uint64_t Memory::getVarAddr(const Id &name) {
     auto iter = variables.find(name);
 
     if (iter == variables.end()) {
@@ -22,9 +24,8 @@ uint64_t Memory<Size>::getVarAddr(const Id &name) {
     return getMemValue(iter->second);
 }
 
-template<uint64_t Size>
-void Memory<Size>::declareNewVariable(const Id &name, int64_t value) {
-    if (numberOfVariables >= Size)
+void Memory::declareNewVariable(const Id &name, int64_t value) {
+    if (numberOfVariables >= memSize)
         throw std::runtime_error("Memory full");
 
     memCells[numberOfVariables] = value;
@@ -36,4 +37,8 @@ void Memory<Size>::declareNewVariable(const Id &name, int64_t value) {
     }
 
     numberOfVariables++;
+}
+
+uint64_t Memory::getNumberOfVariables() const {
+    return numberOfVariables;
 }
