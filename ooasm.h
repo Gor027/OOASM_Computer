@@ -1,10 +1,17 @@
-//
-// Created by gor on 15.01.2021.
-//
-
 #ifndef OOASM_OOASM_H
 #define OOASM_OOASM_H
 
-/* TODO: Either all OOASM operations should be defined as functions or we can make them classes */
+#include "Lea.h"
+#include "Num.h"
+#include "Mem.h"
+#include "Program.h"
+
+Lea lea(const char *name);
+
+Num num(int64_t value);
+
+Mem mem(Rvalue *memValue, Memory &memory);
+
+Program program(std::initializer_list<Instruction> instructionList);
 
 #endif //OOASM_OOASM_H

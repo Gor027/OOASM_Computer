@@ -1,16 +1,26 @@
 #include "Mem.h"
 
-//TODO: here Rvalue exp is copied maybe we can use std::move(exp)
-Mem::Mem(Rvalue exp): _exp(make_unique(exp)) {};
+Mem::Mem(Rvalue *memValue, Memory &memory) {
+    int64_t val = memValue->getValue(memory);
+
+    if (val >= 0) {
+        address = val;
+    } else {
+        /* TODO: Should throw an exception saying that cannot allocate memory of negative index */
+    }
+}
+
+void Mem::setValue(int64_t value, Memory &memory) {
+    return memory.setMemValue(address, value);
+}
 
 int64_t Mem::getValue(Memory &memory) {
-    return memory.getMemValue(exp_ptr->getValue(memory));
+    return memory.getMemValue(address);
 }
 
-uint64_t Mem::getAddr(Memory &memory) {
-    return exp_ptr->getValue(memory);
+void Mem::execute(Memory &memory) {
 }
 
-Mem mem(Rvalue exp) {
-    return Mem(exp);
+void Mem::declare(Memory &memory) {
 }
+

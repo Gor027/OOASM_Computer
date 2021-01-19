@@ -4,9 +4,13 @@
 #include <vector>
 #include "Instruction.h"
 
-class program {
+class Program {
 public:
-    program(std::initializer_list<Instruction>);
+    Program(std::initializer_list<Instruction> instructionList);
+
+    const std::vector<Instruction> &getInstructionList() const;
+
+    size_t getInstructionIterator() const;
 
     const Instruction &next();
 

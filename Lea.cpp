@@ -1,11 +1,15 @@
 #include "Lea.h"
 
-Lea::Lea(const char* name): _name(name) {}
+Lea::Lea(const char *name) : _name(name) {}
 
 int64_t Lea::getValue(Memory &memory) {
-    return memory.getVarAddr(name);
+    return memory.getVarAddr(_name);
 }
 
-Lea lea(const char* name) {
-    return Lea(name).getValue();
+void Lea::execute(Memory &memory) {
+
+}
+
+void Lea::declare(Memory &memory) {
+    /* TODO: It should call getValue(), imo */
 }

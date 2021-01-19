@@ -1,14 +1,15 @@
-//
-// Created by gor on 16.01.2021.
-//
-
 #ifndef OOASM_INSTRUCTION_H
 #define OOASM_INSTRUCTION_H
 
-class Instruction {
-    virtual ~Instruction() = 0;
-};
+#include "Memory.h"
 
-Instruction::~Instruction() {}
+class Instruction {
+public:
+    virtual void execute(Memory &memory) {};
+
+    /* This will enable to declare all variables before execution of any Instruction */
+    /* TODO: maybe another interface should be created for fundamental elements of OOASM */
+    virtual void declare(Memory &memory) {};
+};
 
 #endif //OOASM_INSTRUCTION_H

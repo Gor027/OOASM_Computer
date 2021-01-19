@@ -1,13 +1,11 @@
 #ifndef OOASM_LVALUE_H
 #define OOASM_LVALUE_H
 
-#include "Expression.h"
 #include "Memory.h"
 
-class Lvalue: public virtual Expression {
+class Lvalue {
 public:
-    virtual uint64_t getAddr(Memory &memory);
-    virtual ~Lvalue();
+    virtual void setValue(int64_t value, Memory &memory) = 0;
 };
 
 #endif //OOASM_LVALUE_H

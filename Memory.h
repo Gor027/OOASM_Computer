@@ -18,11 +18,13 @@ public:
 
     uint64_t getNumberOfVariables() const;
 
-    void changeMemValue(uint64_t index, int64_t value);
+    void setMemValue(uint64_t index, int64_t value);
 
     uint64_t getVarAddr(const Id &name);
 
     void declareNewVariable(const Id &name, int64_t value);
+
+    void resetMemory();
 
 private:
     uint64_t memSize = 0;

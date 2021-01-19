@@ -4,15 +4,20 @@
 #include "Memory.h"
 #include "Rvalue.h"
 #include "Id.h"
+#include "Instruction.h"
 
-class Lea: public Rvalue {
+class Lea : public Rvalue, public Instruction {
+public:
+    explicit Lea(const char *name);
+
+    int64_t getValue(Memory &memory) override;
+
+    void execute(Memory &memory) override;
+
+    void declare(Memory &memory) override;
+
 private:
     Id _name;
-public:
-    Lea(const char* name);
 };
-
-//Constructor wrapper function to keep the naming convention.
-Lea lea(const char* name);
 
 #endif //OOASM_LEA_H

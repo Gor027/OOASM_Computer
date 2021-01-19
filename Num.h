@@ -3,15 +3,20 @@
 
 #include "Memory.h"
 #include "Rvalue.h"
+#include "Instruction.h"
 
-class Num: public Rvalue {
+class Num : public Rvalue, public Instruction {
+public:
+    explicit Num(int64_t value);
+
+    int64_t getValue(Memory &memory) override;
+
+    void execute(Memory &memory) override;
+
+    void declare(Memory &memory) override;
+
 private:
     int64_t _value;
-public:
-    Num(int64_t value);
 };
-
-//Constructor wrapper function to keep the naming convention.
-Num num(int64_t value);
 
 #endif //OOASM_NUM_H

@@ -10,7 +10,7 @@ int64_t Memory::getMemValue(uint64_t index) const {
     return memCells[index];
 }
 
-void Memory::changeMemValue(uint64_t index, int64_t value) {
+void Memory::setMemValue(uint64_t index, int64_t value) {
     memCells[index] = value;
 }
 
@@ -41,4 +41,9 @@ void Memory::declareNewVariable(const Id &name, int64_t value) {
 
 uint64_t Memory::getNumberOfVariables() const {
     return numberOfVariables;
+}
+
+void Memory::resetMemory() {
+    std::fill(memCells.begin(), memCells.end(), 0);
+    variables.clear();
 }

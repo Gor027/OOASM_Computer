@@ -4,17 +4,23 @@
 #include "Rvalue.h"
 #include "Lvalue.h"
 #include "Memory.h"
+#include "Instruction.h"
 #include <memory>
 
-class Mem : public Lvalue, public Rvalue {
-private:
-    //Pointer has to be stored instead of the object to avoid cyclic dependecies during compile-time
-    std::unique_ptr<Rvalue> exp_ptr;
+class Mem : public Lvalue, public Rvalue, public Instruction {
 public:
-    Mem(Rvalue exp);
-};
+    explicit Mem(Rvalue *memValue, Memory &memory);
 
-//Constructor wrapper function to keep the naming convention.
-Mem mem(Rvalue exp);
+    void setValue(int64_t value, Memory &memory) override;
+
+    int64_t getValue(Memory &memory) override;
+
+    void execute(Memory &memory) override;
+
+    void declare(Memory &memory) override;
+
+private:
+    uint64_t address;
+};
 
 #endif //OOASM_MEM_H
