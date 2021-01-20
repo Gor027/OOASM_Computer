@@ -2,11 +2,9 @@
 #include <stdexcept>
 #include "Id.h"
 
-class wrongIdNameLength : public std::exception
-{
+class wrongIdNameLength : public std::exception {
 public:
-    virtual const char *what() const throw()
-    {
+    const char *what() const noexcept override {
         return "Wrong length of variable identifier";
     }
 };
@@ -21,7 +19,7 @@ Id::Id(const char *var) {
     this->varId = var;
 }
 
-const char* Id::getId() const {
+const char *Id::getId() const {
     return varId;
 }
 

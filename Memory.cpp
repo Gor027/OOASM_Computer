@@ -15,7 +15,7 @@ void Memory::setMemValue(uint64_t index, int64_t value) {
     memCells[index] = value;
 }
 
-uint64_t Memory::getVarAddr(std::shared_ptr<Id> name) {
+uint64_t Memory::getVarAddr(const std::shared_ptr<Id>& name) {
     auto iter = variables.find(*name);
 
     if (iter == variables.end()) {
@@ -24,7 +24,7 @@ uint64_t Memory::getVarAddr(std::shared_ptr<Id> name) {
     return iter->second;
 }
 
-void Memory::declareNewVariable(std::shared_ptr<Id> name, int64_t value) {
+void Memory::declareNewVariable(const std::shared_ptr<Id>& name, int64_t value) {
     if (numberOfVariables >= memSize)
         throw std::runtime_error("Memory full");
 
@@ -55,11 +55,11 @@ void Memory::setSF(bool value) {
     signFlag = value;
 }
 
-bool Memory::getZF() {
+bool Memory::getZF() const {
     return zeroFlag;
 }
 
-bool Memory::getSF() {
+bool Memory::getSF() const {
     return signFlag;
 }
 

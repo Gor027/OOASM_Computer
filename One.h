@@ -2,13 +2,14 @@
 #define OOASM_ONE_H
 
 #include <memory>
+#include <utility>
 #include "Lvalue.h"
 #include "Memory.h"
 #include "Instruction.h"
 
-class One: public Instruction {
+class One : public Instruction {
 public:
-    One(std::shared_ptr<Lvalue> arg): _arg(arg) {}
+    explicit One(std::shared_ptr<Lvalue> arg) : _arg(std::move(arg)) {}
 
     void execute(Memory &memory) override {
         _arg->setValue(1, memory);
@@ -18,9 +19,9 @@ protected:
     std::shared_ptr<Lvalue> _arg;
 };
 
-class Onez: public One {
+class Onez : public One {
 public:
-    Onez(std::shared_ptr<Lvalue> arg): One(arg) {}
+    explicit Onez(std::shared_ptr<Lvalue> arg) : One(std::move(arg)) {}
 
     void execute(Memory &memory) override {
         if (memory.getZF())
@@ -28,9 +29,9 @@ public:
     }
 };
 
-class Ones: public One {
+class Ones : public One {
 public:
-    Ones(std::shared_ptr<Lvalue> arg): One(arg) {}
+    explicit Ones(std::shared_ptr<Lvalue> arg) : One(std::move(arg)) {}
 
     void execute(Memory &memory) override {
         if (memory.getSF())

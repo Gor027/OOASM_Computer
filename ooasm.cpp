@@ -8,43 +8,43 @@ std::shared_ptr<Num> num(int64_t value) {
     return std::make_shared<Num>(value);
 }
 
-std::shared_ptr<Mem> mem(std::shared_ptr<Rvalue> expr) {
+std::shared_ptr<Mem> mem(const std::shared_ptr<Rvalue> &expr) {
     return std::make_shared<Mem>(expr);
 }
 
-std::shared_ptr<Data> data(const char *name, std::shared_ptr<Num> val) {
+std::shared_ptr<Data> data(const char *name, const std::shared_ptr<Num> &val) {
     return std::make_shared<Data>(std::make_shared<Id>(name), val);
 }
 
-std::shared_ptr<Mov> mov(std::shared_ptr<Lvalue> src, std::shared_ptr<Rvalue> dst) {
+std::shared_ptr<Mov> mov(const std::shared_ptr<Lvalue> &src, const std::shared_ptr<Rvalue> &dst) {
     return std::make_shared<Mov>(src, dst);
 }
 
-std::shared_ptr<Add> add(std::shared_ptr<Lvalue> arg1, std::shared_ptr<Rvalue> arg2) {
+std::shared_ptr<Add> add(const std::shared_ptr<Lvalue> &arg1, const std::shared_ptr<Rvalue> &arg2) {
     return std::make_shared<Add>(arg1, arg2);
 }
 
-std::shared_ptr<Sub> sub(std::shared_ptr<Lvalue> arg1, std::shared_ptr<Rvalue> arg2) {
+std::shared_ptr<Sub> sub(const std::shared_ptr<Lvalue> &arg1, const std::shared_ptr<Rvalue> &arg2) {
     return std::make_shared<Sub>(arg1, arg2);
 }
 
-std::shared_ptr<Inc> inc(std::shared_ptr<Lvalue> arg) {
+std::shared_ptr<Inc> inc(const std::shared_ptr<Lvalue> &arg) {
     return std::make_shared<Inc>(arg);
 }
 
-std::shared_ptr<Dec> dec(std::shared_ptr<Lvalue> arg) {
+std::shared_ptr<Dec> dec(const std::shared_ptr<Lvalue> &arg) {
     return std::make_shared<Dec>(arg);
 }
 
-std::shared_ptr<One> one(std::shared_ptr<Lvalue> arg) {
+std::shared_ptr<One> one(const std::shared_ptr<Lvalue> &arg) {
     return std::make_shared<One>(arg);
 }
 
-std::shared_ptr<Onez> onez(std::shared_ptr<Lvalue> arg) {
+std::shared_ptr<Onez> onez(const std::shared_ptr<Lvalue> &arg) {
     return std::make_shared<Onez>(arg);
 }
 
-std::shared_ptr<Ones> ones(std::shared_ptr<Lvalue> arg) {
+std::shared_ptr<Ones> ones(const std::shared_ptr<Lvalue> &arg) {
     return std::make_shared<Ones>(arg);
 }
 

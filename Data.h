@@ -2,6 +2,7 @@
 #define OOASM_DATA_H
 
 #include <memory>
+#include <utility>
 #include "Memory.h"
 #include "Id.h"
 #include "Instruction.h"
@@ -9,12 +10,12 @@
 
 class Data : public Instruction {
 public:
-    Data(std::shared_ptr<Id> name, std::shared_ptr<Num> value) : _name(std::move(name)), _value(value) {}
-    
+    Data(std::shared_ptr<Id> name, std::shared_ptr<Num> value) : _name(std::move(name)), _value(std::move(value)) {}
+
     void execute([[maybe_unused]]Memory &memory) override {};
 
     void declare(Memory &memory) override;
-    
+
 private:
     std::shared_ptr<Id> _name;
     std::shared_ptr<Num> _value;

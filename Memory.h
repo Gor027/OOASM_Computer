@@ -22,17 +22,17 @@ public:
 
     void setMemValue(uint64_t index, int64_t value);
 
-    uint64_t getVarAddr(std::shared_ptr<Id> name);
+    uint64_t getVarAddr(const std::shared_ptr<Id>& name);
 
-    void declareNewVariable(std::shared_ptr<Id> name, int64_t value);
+    void declareNewVariable(const std::shared_ptr<Id>& name, int64_t value);
 
     void setZF(bool value);
-    
+
     void setSF(bool value);
 
-    bool getZF();
+    bool getZF() const;
 
-    bool getSF();
+    bool getSF() const;
 
     void resetMemory();
 

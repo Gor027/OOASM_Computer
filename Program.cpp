@@ -3,7 +3,7 @@
 Program::Program(std::initializer_list<std::shared_ptr<Instruction>> instList) : instructionList(instList), instructionIterator(0) {
 }
 
-const std::shared_ptr<Instruction> Program::next() {
+std::shared_ptr<Instruction> Program::next() {
     return instructionList[instructionIterator++];
 }
 

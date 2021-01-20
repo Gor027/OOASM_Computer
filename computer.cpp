@@ -9,12 +9,12 @@ void Computer::boot(Program &program) {
     program.restartIterator(); /* Resets program iterator */
 
     /* TODO: Here all necessary variables should be declared */
-    for (auto instruction : program.getInstructionList()) {
+    for (const auto& instruction : program.getInstructionList()) {
         instruction->declare(memory);
     }
 
     /* TODO: Here program instructions should be executed */
-    for (auto instruction : program.getInstructionList()) {
+    for (const auto& instruction : program.getInstructionList()) {
         instruction->execute(memory);
     }
 }

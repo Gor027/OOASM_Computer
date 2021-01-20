@@ -3,7 +3,7 @@
 
 class Id {
 public:
-    Id(const char *var);
+    explicit Id(const char *var);
     const char *getId() const;
     bool operator<(const Id &other) const;
 

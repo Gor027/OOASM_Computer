@@ -1,6 +1,8 @@
 #ifndef OOASM_INC_H
 #define OOASM_INC_H
 
+#include <utility>
+
 #include "Memory.h"
 #include "Rvalue.h"
 #include "Mem.h"
@@ -8,8 +10,8 @@
 
 class Inc : public Instruction {
 public:
-    Inc(std::shared_ptr<Lvalue> arg) : _arg(arg) {}
-    
+    explicit Inc(std::shared_ptr<Lvalue> arg) : _arg(std::move(arg)) {}
+
     void execute(Memory &memory) override;
 
 private:

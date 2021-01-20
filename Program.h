@@ -12,7 +12,7 @@ public:
 
     size_t getInstructionIterator() const;
 
-    const std::shared_ptr<Instruction> next();
+    std::shared_ptr<Instruction> next();
 
     void restartIterator();
 

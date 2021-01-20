@@ -6,10 +6,11 @@
 #include "Memory.h"
 
 #include <memory>
+#include <utility>
 
 class Mem : public Lvalue{
 public:
-    explicit Mem(std::shared_ptr<Rvalue> expr): _expr(expr) {}
+    explicit Mem(std::shared_ptr<Rvalue> expr): _expr(std::move(expr)) {}
 
     void setValue(int64_t value, Memory &memory) override;
 
