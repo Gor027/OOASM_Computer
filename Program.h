@@ -6,18 +6,18 @@
 
 class Program {
 public:
-    Program(std::initializer_list<Instruction> instructionList);
+    Program(std::initializer_list<std::shared_ptr<Instruction>> instructionList);
 
-    const std::vector<Instruction> &getInstructionList() const;
+    const std::vector<std::shared_ptr<Instruction>> &getInstructionList() const;
 
     size_t getInstructionIterator() const;
 
-    const Instruction &next();
+    const std::shared_ptr<Instruction> next();
 
     void restartIterator();
 
 private:
-    std::vector<Instruction> instructionList;
+    std::vector<std::shared_ptr<Instruction>> instructionList;
     size_t instructionIterator;
 };
 

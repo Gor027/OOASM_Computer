@@ -10,17 +10,17 @@ void Computer::boot(Program &program) {
 
     /* TODO: Here all necessary variables should be declared */
     for (auto instruction : program.getInstructionList()) {
-        instruction.declare(memory);
+        instruction->declare(memory);
     }
 
     /* TODO: Here program instructions should be executed */
     for (auto instruction : program.getInstructionList()) {
-        instruction.execute(memory);
+        instruction->execute(memory);
     }
 }
 
 void Computer::memory_dump(std::ostream &ss) const {
-    for (uint64_t i = 0; i < memory.getNumberOfVariables(); i++) {
+    for (uint64_t i = 0; i < memory.getMemLength(); i++) {
         ss << memory.getMemValue(i) << " ";
     }
 }

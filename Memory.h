@@ -5,8 +5,8 @@
 #include <cstdint>
 #include <stdexcept>
 #include <vector>
+#include <memory>
 #include "Id.h"
-#include "Flags.h"
 
 class Memory {
 public:
@@ -18,11 +18,21 @@ public:
 
     uint64_t getNumberOfVariables() const;
 
+    uint64_t getMemLength() const;
+
     void setMemValue(uint64_t index, int64_t value);
 
-    uint64_t getVarAddr(const Id &name);
+    uint64_t getVarAddr(std::shared_ptr<Id> name);
 
-    void declareNewVariable(const Id &name, int64_t value);
+    void declareNewVariable(std::shared_ptr<Id> name, int64_t value);
+
+    void setZF(bool value);
+    
+    void setSF(bool value);
+
+    bool getZF();
+
+    bool getSF();
 
     void resetMemory();
 
@@ -31,6 +41,8 @@ private:
     uint64_t numberOfVariables = 0;
     std::vector<int64_t> memCells;
     std::map<Id, uint64_t> variables;
+    bool zeroFlag = false;
+    bool signFlag = false;
 };
 
 #endif //OOASM_MEMORY_H

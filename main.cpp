@@ -2,6 +2,7 @@
 
 #include "ooasm.h"
 #include "computer.h"
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <cassert>

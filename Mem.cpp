@@ -1,26 +1,12 @@
 #include "Mem.h"
 
-Mem::Mem(Rvalue *memValue, Memory &memory) {
-    int64_t val = memValue->getValue(memory);
-
-    if (val >= 0) {
-        address = val;
-    } else {
-        /* TODO: Should throw an exception saying that cannot allocate memory of negative index */
-    }
-}
-
 void Mem::setValue(int64_t value, Memory &memory) {
-    return memory.setMemValue(address, value);
+    auto addr = _expr->getValue(memory);
+    return memory.setMemValue(addr, value);
 }
 
 int64_t Mem::getValue(Memory &memory) {
-    return memory.getMemValue(address);
-}
-
-void Mem::execute(Memory &memory) {
-}
-
-void Mem::declare(Memory &memory) {
+    auto addr = _expr->getValue(memory);
+    return memory.getMemValue(addr);
 }
 
