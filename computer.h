@@ -3,7 +3,9 @@
 
 #include <cstdint>
 #include <sstream>
+
 #include "Program.h"
+#include "Processor.h"
 #include "Memory.h"
 
 class Computer {
@@ -15,6 +17,7 @@ public:
     void memory_dump(std::ostream &ss) const;
 
 private:
+    Processor processor;
     Memory memory;
 };
 

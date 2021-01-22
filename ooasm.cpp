@@ -28,12 +28,12 @@ std::shared_ptr<Sub> sub(const std::shared_ptr<Lvalue> &arg1, const std::shared_
     return std::make_shared<Sub>(arg1, arg2);
 }
 
-std::shared_ptr<Inc> inc(const std::shared_ptr<Lvalue> &arg) {
-    return std::make_shared<Inc>(arg);
+std::shared_ptr<Add> inc(const std::shared_ptr<Lvalue> &arg) {
+    return std::make_shared<Add>(arg, num(1));
 }
 
-std::shared_ptr<Dec> dec(const std::shared_ptr<Lvalue> &arg) {
-    return std::make_shared<Dec>(arg);
+std::shared_ptr<Sub> dec(const std::shared_ptr<Lvalue> &arg) {
+    return std::make_shared<Sub>(arg, num(1));
 }
 
 std::shared_ptr<One> one(const std::shared_ptr<Lvalue> &arg) {

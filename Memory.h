@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <vector>
 #include <memory>
+
 #include "Id.h"
 
 class Memory {
@@ -22,9 +23,9 @@ public:
 
     void setMemValue(uint64_t index, int64_t value);
 
-    uint64_t getVarAddr(const std::shared_ptr<Id>& name);
+    uint64_t getVarAddr(const std::shared_ptr<Id> &name);
 
-    void declareNewVariable(const std::shared_ptr<Id>& name, int64_t value);
+    void declareNewVariable(const std::shared_ptr<Id> &name, int64_t value);
 
     void setZF(bool value);
 

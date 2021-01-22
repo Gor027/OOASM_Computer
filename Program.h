@@ -2,7 +2,7 @@
 #define OOASM_PROGRAM_H
 
 #include <vector>
-#include "Instruction.h"
+#include "Instructions.h"
 
 class Program {
 public:

@@ -1,6 +1,7 @@
-#include "Memory.h"
 #include <stdexcept>
 #include <iostream>
+
+#include "Memory.h"
 
 Memory::Memory() = default;
 
@@ -15,7 +16,7 @@ void Memory::setMemValue(uint64_t index, int64_t value) {
     memCells[index] = value;
 }
 
-uint64_t Memory::getVarAddr(const std::shared_ptr<Id>& name) {
+uint64_t Memory::getVarAddr(const std::shared_ptr<Id> &name) {
     auto iter = variables.find(*name);
 
     if (iter == variables.end()) {
@@ -24,7 +25,7 @@ uint64_t Memory::getVarAddr(const std::shared_ptr<Id>& name) {
     return iter->second;
 }
 
-void Memory::declareNewVariable(const std::shared_ptr<Id>& name, int64_t value) {
+void Memory::declareNewVariable(const std::shared_ptr<Id> &name, int64_t value) {
     if (numberOfVariables >= memSize)
         throw std::runtime_error("Memory full");
 

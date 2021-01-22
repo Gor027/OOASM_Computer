@@ -1,7 +1,6 @@
 #include "Program.h"
 
-Program::Program(std::initializer_list<std::shared_ptr<Instruction>> instList) : instructionList(instList), instructionIterator(0) {
-}
+Program::Program(std::initializer_list<std::shared_ptr<Instruction>> instList) : instructionList(instList), instructionIterator(0) {}
 
 std::shared_ptr<Instruction> Program::next() {
     return instructionList[instructionIterator++];

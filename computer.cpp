@@ -5,18 +5,7 @@ Computer::Computer(uint64_t cellNumbers) {
 }
 
 void Computer::boot(Program &program) {
-    memory.resetMemory(); /* Resets memory in computer */
-    program.restartIterator(); /* Resets program iterator */
-
-    /* TODO: Here all necessary variables should be declared */
-    for (const auto& instruction : program.getInstructionList()) {
-        instruction->declare(memory);
-    }
-
-    /* TODO: Here program instructions should be executed */
-    for (const auto& instruction : program.getInstructionList()) {
-        instruction->execute(memory);
-    }
+    processor.executeProgram(program, memory);
 }
 
 void Computer::memory_dump(std::ostream &ss) const {
