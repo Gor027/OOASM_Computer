@@ -12,14 +12,14 @@ public:
     virtual int64_t getValue(Memory &memory) = 0;
 };
 
-class Lvalue: public Rvalue {
+class Lvalue : public Rvalue {
 public:
     virtual void setValue(int64_t value, Memory &memory) = 0;
 };
 
-class Mem : public Lvalue{
+class Mem : public Lvalue {
 public:
-    explicit Mem(std::shared_ptr<Rvalue> expr): _expr(std::move(expr)) {}
+    explicit Mem(std::shared_ptr<Rvalue> expr) : _expr(std::move(expr)) {}
 
     void setValue(int64_t value, Memory &memory) override;
 
@@ -29,7 +29,7 @@ private:
     std::shared_ptr<Rvalue> _expr;
 };
 
-class Num : public Rvalue{
+class Num : public Rvalue {
 public:
     explicit Num(int64_t value);
 

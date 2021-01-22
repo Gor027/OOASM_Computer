@@ -1,6 +1,4 @@
 #include <stdexcept>
-#include <iostream>
-
 #include "Memory.h"
 
 Memory::Memory() = default;
@@ -55,7 +53,7 @@ uint64_t Memory::getMemLength() const {
 void Memory::setZF(bool value) {
     zeroFlag = value;
 }
-    
+
 void Memory::setSF(bool value) {
     signFlag = value;
 }
