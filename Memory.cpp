@@ -9,19 +9,23 @@ Memory::Memory(uint64_t size) : memSize(size), memCells(size) {
 }
 
 int64_t Memory::getMemValue(uint64_t index) const {
+    if (index >= getMemLength())
+        throw std::out_of_range("Memory index out of bounds");
     return memCells[index];
 }
 
 void Memory::setMemValue(uint64_t index, int64_t value) {
+    if (index >= getMemLength())
+        throw std::out_of_range("Memory index out of bounds");
     memCells[index] = value;
 }
 
 uint64_t Memory::getVarAddr(const std::shared_ptr<Id> &name) {
     auto iter = variables.find(*name);
 
-    if (iter == variables.end()) {
+    if (iter == variables.end())
         throw std::invalid_argument("Variable does not exist");
-    } 
+
     return iter->second;
 }
 
@@ -67,4 +71,5 @@ bool Memory::getSF() const {
 void Memory::resetMemory() {
     std::fill(memCells.begin(), memCells.end(), 0);
     variables.clear();
+    numberOfVariables = 0;
 }
