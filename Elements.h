@@ -19,7 +19,7 @@ public:
 
 class Mem : public Lvalue {
 public:
-    explicit Mem(std::shared_ptr<Rvalue> expr) : _expr(std::move(expr)) {}
+    explicit Mem(std::shared_ptr<Rvalue> expr);
 
     void setValue(int64_t value, Memory &memory) override;
 

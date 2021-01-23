@@ -6,7 +6,6 @@
 
 #include "Program.h"
 #include "Processor.h"
-#include "Memory.h"
 
 class Computer {
 public:

@@ -1,5 +1,6 @@
 #include <cstring>
 #include <stdexcept>
+
 #include "Id.h"
 
 class wrongIdNameLength : public std::exception {

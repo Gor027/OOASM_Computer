@@ -4,24 +4,23 @@
 #include <memory>
 #include <utility>
 
-#include "Memory.h"
-#include "Id.h"
 #include "Elements.h"
+#include "ProcessorFlags.h"
 
 class Instruction {
 public:
-    virtual void execute(Memory &memory) = 0;
+    virtual void execute(Memory &memory, ProcessorFlags &flags) = 0;
 
-    virtual void declare([[maybe_unused]]Memory &memory) {};
+    inline virtual void declare([[maybe_unused]]Memory &memory) {};
 
     virtual ~Instruction() = default;
 };
 
 class Data : public Instruction {
 public:
-    Data(std::shared_ptr<Id> name, std::shared_ptr<Num> value) : _name(std::move(name)), _value(std::move(value)) {}
+    Data(std::shared_ptr<Id> name, std::shared_ptr<Num> value);
 
-    void execute([[maybe_unused]]Memory &memory) override {};
+    inline void execute([[maybe_unused]]Memory &memory, [[maybe_unused]] ProcessorFlags &flags) override {};
 
     void declare(Memory &memory) override;
 
@@ -32,9 +31,9 @@ private:
 
 class Mov : public Instruction {
 public:
-    Mov(std::shared_ptr<Lvalue> src, std::shared_ptr<Rvalue> dst) : _src{std::move(src)}, _dst{std::move(dst)} {}
+    Mov(std::shared_ptr<Lvalue> src, std::shared_ptr<Rvalue> dst);
 
-    void execute(Memory &memory) override;
+    void execute(Memory &memory, [[maybe_unused]] ProcessorFlags &flags) override;
 
 private:
     std::shared_ptr<Lvalue> _src;
@@ -43,9 +42,9 @@ private:
 
 class Add : public Instruction {
 public:
-    Add(std::shared_ptr<Lvalue> arg1, std::shared_ptr<Rvalue> arg2) : _arg1(std::move(arg1)), _arg2(std::move(arg2)) {}
+    Add(std::shared_ptr<Lvalue> arg1, std::shared_ptr<Rvalue> arg2);
 
-    void execute(Memory &memory) override;
+    void execute(Memory &memory, ProcessorFlags &flags) override;
 
 private:
     std::shared_ptr<Lvalue> _arg1;
@@ -54,9 +53,9 @@ private:
 
 class Sub : public Instruction {
 public:
-    Sub(std::shared_ptr<Lvalue> arg1, std::shared_ptr<Rvalue> arg2) : _arg1(std::move(arg1)), _arg2(std::move(arg2)) {}
+    Sub(std::shared_ptr<Lvalue> arg1, std::shared_ptr<Rvalue> arg2);
 
-    void execute(Memory &memory) override;
+    void execute(Memory &memory, ProcessorFlags &flags) override;
 
 private:
     std::shared_ptr<Lvalue> _arg1;
@@ -65,9 +64,9 @@ private:
 
 class One : public Instruction {
 public:
-    explicit One(std::shared_ptr<Lvalue> arg) : _arg(std::move(arg)) {}
+    explicit One(std::shared_ptr<Lvalue> arg);
 
-    void execute(Memory &memory) override;
+    void execute(Memory &memory, [[maybe_unused]] ProcessorFlags &flags) override;
 
 protected:
     std::shared_ptr<Lvalue> _arg;
@@ -75,17 +74,16 @@ protected:
 
 class Onez : public One {
 public:
-    explicit Onez(std::shared_ptr<Lvalue> arg) : One(std::move(arg)) {}
+    explicit Onez(std::shared_ptr<Lvalue> arg);
 
-    void execute(Memory &memory) override;
+    void execute(Memory &memory, ProcessorFlags &flags) override;
 };
 
 class Ones : public One {
 public:
-    explicit Ones(std::shared_ptr<Lvalue> arg) : One(std::move(arg)) {}
+    explicit Ones(std::shared_ptr<Lvalue> arg);
 
-    void execute(Memory &memory) override;
+    void execute(Memory &memory, ProcessorFlags &flags) override;
 };
-
 
 #endif //OOASM_INSTRUCTIONS_H

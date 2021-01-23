@@ -1,5 +1,7 @@
 #include "Elements.h"
 
+Mem::Mem(std::shared_ptr<Rvalue> expr) : _expr(std::move(expr)) {}
+
 void Mem::setValue(int64_t value, Memory &memory) {
     auto addr = _expr->getValue(memory);
     return memory.setMemValue(addr, value);

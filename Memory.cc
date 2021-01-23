@@ -1,10 +1,7 @@
 #include <stdexcept>
 #include "Memory.h"
 
-Memory::Memory() = default;
-
-Memory::Memory(uint64_t size) : memSize(size), memCells(size) {
-}
+Memory::Memory(uint64_t size) : memSize(size), memCells(size) {}
 
 int64_t Memory::getMemValue(uint64_t index) const {
     if (index >= getMemLength())
@@ -18,7 +15,7 @@ void Memory::setMemValue(uint64_t index, int64_t value) {
     memCells[index] = value;
 }
 
-uint64_t Memory::getVarAddr(const std::shared_ptr<Id> &name) {
+uint64_t Memory::getVarAddr(const std::shared_ptr<Id> &name) const {
     auto iter = variables.find(*name);
 
     if (iter == variables.end())
@@ -48,22 +45,6 @@ uint64_t Memory::getNumberOfVariables() const {
 
 uint64_t Memory::getMemLength() const {
     return memSize;
-}
-
-void Memory::setZF(bool value) {
-    zeroFlag = value;
-}
-
-void Memory::setSF(bool value) {
-    signFlag = value;
-}
-
-bool Memory::getZF() const {
-    return zeroFlag;
-}
-
-bool Memory::getSF() const {
-    return signFlag;
 }
 
 void Memory::resetMemory() {

@@ -1,8 +1,6 @@
 #include "computer.h"
 
-Computer::Computer(uint64_t cellNumbers) {
-    this->memory = Memory(cellNumbers);
-}
+Computer::Computer(uint64_t cellNumbers): memory(cellNumbers) {}
 
 void Computer::boot(Program &program) {
     processor.executeProgram(program, memory);
