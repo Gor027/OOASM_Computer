@@ -20,10 +20,6 @@ Id::Id(const char *var) {
     this->varId = var;
 }
 
-const char *Id::getId() const {
-    return varId;
-}
-
 bool Id::operator<(const Id &other) const {
     return varId < other.varId;
 }

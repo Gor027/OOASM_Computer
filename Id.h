@@ -5,8 +5,6 @@ class Id {
 public:
     explicit Id(const char *var);
 
-    const char *getId() const;
-
     bool operator<(const Id &other) const;
 
 private:

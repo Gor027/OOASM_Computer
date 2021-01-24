@@ -2,8 +2,6 @@
 #define PROCESSOR_FLAGS_H
 
 class ProcessorFlags {
-private:
-    bool zeroFlag, signFlag;
 public:
     inline void setZF(bool value) {
         zeroFlag = value;
@@ -21,10 +19,9 @@ public:
         return signFlag;
     }
 
-    inline void resetFlags() {
-        zeroFlag = false;
-        signFlag = false;
-    }
+private:
+    bool zeroFlag = false;
+    bool signFlag = false;
 };
 
 #endif //PROCESSOR_FLAGS_H

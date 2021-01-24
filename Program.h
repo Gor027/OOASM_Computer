@@ -9,10 +9,6 @@ public:
 
     const std::vector<std::shared_ptr<Instruction>> &getInstructionList() const;
 
-    size_t getInstructionIterator() const;
-
-    std::shared_ptr<Instruction> next();
-
     void restartIterator();
 
 private:
