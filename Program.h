@@ -1,7 +1,6 @@
 #ifndef OOASM_PROGRAM_H
 #define OOASM_PROGRAM_H
 
-#include <vector>
 #include "Instructions.h"
 
 class Program {

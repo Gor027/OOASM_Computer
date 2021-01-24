@@ -2,7 +2,6 @@
 #define OOASM_PROCESSOR_H
 
 #include "Program.h"
-#include "ProcessorFlags.h"
 
 class Processor {
 private:

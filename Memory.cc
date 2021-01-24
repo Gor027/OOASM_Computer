@@ -1,4 +1,3 @@
-#include <stdexcept>
 #include "Memory.h"
 
 Memory::Memory(uint64_t size) : memSize(size), memCells(size) {}

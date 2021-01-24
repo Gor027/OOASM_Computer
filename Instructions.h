@@ -2,7 +2,6 @@
 #define OOASM_INSTRUCTIONS_H
 
 #include <memory>
-#include <utility>
 
 #include "Elements.h"
 #include "ProcessorFlags.h"

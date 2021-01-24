@@ -1,8 +1,6 @@
 #ifndef OOASM_OOASM_H
 #define OOASM_OOASM_H
 
-#include <memory>
-
 #include "Program.h"
 
 std::shared_ptr<Lea> lea(const char *name);

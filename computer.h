@@ -1,10 +1,8 @@
 #ifndef OOASM_COMPUTER_H
 #define OOASM_COMPUTER_H
 
-#include <cstdint>
 #include <sstream>
 
-#include "Program.h"
 #include "Processor.h"
 
 class Computer {

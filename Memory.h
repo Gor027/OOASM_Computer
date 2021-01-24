@@ -2,8 +2,6 @@
 #define OOASM_MEMORY_H
 
 #include <map>
-#include <cstdint>
-#include <stdexcept>
 #include <vector>
 #include <memory>
 
@@ -11,7 +9,6 @@
 
 class Memory {
 public:
-
     explicit Memory(uint64_t size);
 
     int64_t getMemValue(uint64_t index) const;
