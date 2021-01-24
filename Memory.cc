@@ -38,10 +38,6 @@ void Memory::declareNewVariable(const std::shared_ptr<Id> &name, int64_t value) 
     numberOfVariables++;
 }
 
-uint64_t Memory::getNumberOfVariables() const {
-    return numberOfVariables;
-}
-
 uint64_t Memory::getMemLength() const {
     return memSize;
 }

@@ -13,8 +13,6 @@ public:
 
     int64_t getMemValue(uint64_t index) const;
 
-    uint64_t getNumberOfVariables() const;
-
     uint64_t getMemLength() const;
 
     void setMemValue(uint64_t index, int64_t value);

@@ -2,13 +2,13 @@
 #define PROCESSOR_FLAGS_H
 
 class ProcessorFlags {
-private: 
+private:
     bool zeroFlag, signFlag;
 public:
     inline void setZF(bool value) {
         zeroFlag = value;
     }
-    
+
     inline void setSF(bool value) {
         signFlag = value;
     }
@@ -17,7 +17,7 @@ public:
         return zeroFlag;
     }
 
-    inline bool getSF() const{
+    inline bool getSF() const {
         return signFlag;
     }
 

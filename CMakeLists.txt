@@ -8,6 +8,9 @@ set(CMAKE_C_FLAGS "-Wall -Wextra -O2 -std=c++17")
 file(GLOB OOASM_SRC
         "*.h"
         "*.cc"
+        "tests/ooasm_grzesiek.cc"
+        "tests/ooasm_szulc.cc"
+        "tests/main.cc"
         )
 
 add_executable(
