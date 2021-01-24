@@ -7,11 +7,15 @@
 
 class Rvalue {
 public:
+    virtual ~Rvalue() = default;
+
     virtual int64_t getValue(Memory &memory) = 0;
 };
 
 class Lvalue : public Rvalue {
 public:
+    ~Lvalue() override = default;
+
     virtual void setValue(int64_t value, Memory &memory) = 0;
 };
 

@@ -9,9 +9,9 @@ file(GLOB OOASM_SRC
         "*.h"
         "*.cc"
         #        Uncomment the lines to run & test
-        #        "tests/ooasm_grzesiek.cc"
-        #        "tests/ooasm_szulc.cc"
-        #        "tests/main.cc"
+        #                "tests/ooasm_grzesiek.cc"
+        #                "tests/ooasm_szulc.cc"
+        #                "tests/main.cc"
         )
 
 add_executable(
